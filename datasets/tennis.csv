@@ -1,0 +1,1 @@
+outlook,temperature,humidity,windy,playsunny,A,H,FALSE,nosunny,A,H,TRUE,noovercast,A,H,FALSE,yesrainy,B,H,FALSE,yesrainy,B,L,FALSE,yesrainy,B,L,TRUE,noovercast,B,L,TRUE,yessunny,B,H,FALSE,nosunny,B,L,FALSE,yesrainy,A,L,FALSE,yessunny,A,L,TRUE,yesovercast,B,H,TRUE,yesovercast,A,L,FALSE,yesrainy,B,H,TRUE,no
