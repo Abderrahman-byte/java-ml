@@ -2,6 +2,7 @@ package abderrahmane.ml;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collection;
 import java.util.List;
 import java.util.Set;
 import java.util.TreeSet;
@@ -85,6 +86,22 @@ public class Utils {
         return index;
     }
 
+    public static int getIndexOfLargest (int lst[]) {
+        int min = Integer.MIN_VALUE;
+        int index = -1;
+
+        for (int i = 0; i < lst.length; i++) {
+            int elt = lst[i];
+
+            if (elt > min) {
+                min = elt;
+                index = i;
+            }
+        }
+
+        return index;
+    }
+
     public static double median (List<? extends Number> values) {
         double valuesArray[] = new double[values.size()];
 
@@ -120,6 +137,38 @@ public class Utils {
         }
 
         return true;
+    }
+
+    public static <T> List<List<T>> setColumn (List<List<T>> table, List<T> values, int index) {
+        List<List<T>> tableClone = cloneTable(table);
+
+        for (int i = 0; i < table.size(); i++) tableClone.get(i).set(index, values.get(i));
+
+        return tableClone;
+    }
+
+    public static <T extends Object> int findFirstIndex (Collection<T> collection, T value) {
+        Object values[]  = collection.toArray();
+
+        for (int i = 0; i < values.length; i++) {
+            if (value.equals(values[i])) return i;
+        }
+
+        return -1;
+    }
+
+    public static <T> List<List<T>> cloneTable (List<List<T>> table) {
+        List<List<T>> tableClone = new ArrayList<>();
+
+        for (int i = 0; i < table.size(); i++) {
+            List<T> a = new ArrayList<>();
+
+            for (int j = 0; j < table.get(i).size(); j++) a.add(table.get(i).get(j));
+
+            tableClone.add(a);
+        }
+
+        return tableClone;
     }
 
 }

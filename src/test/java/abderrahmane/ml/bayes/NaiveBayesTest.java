@@ -23,8 +23,9 @@ public class NaiveBayesTest {
             this.csvReader = new CSVReader("datasets/data_2.csv");
             List<List<String>> table = this.csvReader.getTable(false);
             List<String> target = Utils.getColumns(table, table.get(0).size() - 1);
+            List<List<String>> features = Utils.removeColumns(table, table.get(0).size() -1);
 
-            this.bayes = new NaiveBayes(table, target);
+            this.bayes = new NaiveBayes(features, target);
         } catch (Exception ex) {
             throw new AssertionError(ex.getMessage(), ex);
         }
