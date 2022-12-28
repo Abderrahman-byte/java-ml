@@ -88,7 +88,7 @@ public class DecisionTree implements Predictable {
     public String predict(List<String> features) {
         String value = features.get(this.decisionFeatureIndex);
         
-        if (value == null) return null;
+        if (value == null || !this.leafs.containsKey(value)) return null;
 
         return leafs.get(value).predict(Utils.removeValue(features, this.decisionFeatureIndex));
     }

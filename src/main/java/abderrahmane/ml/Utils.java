@@ -1,6 +1,7 @@
 package abderrahmane.ml;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Set;
 import java.util.TreeSet;
@@ -67,4 +68,58 @@ public class Utils {
 
         return index;
     }
+
+    public static int getIndexOfSmallest (double lst[]) {
+        Double min = Double.MAX_VALUE;
+        int index = -1;
+
+        for (int i = 0; i < lst.length; i++) {
+            Double elt = lst[i];
+
+            if (elt < min) {
+                min = elt;
+                index = i;
+            }
+        }
+
+        return index;
+    }
+
+    public static double median (List<? extends Number> values) {
+        double valuesArray[] = new double[values.size()];
+
+        for (int i = 0; i < values.size(); i++) 
+            valuesArray[i] = values.get(i).doubleValue();
+
+        return median(valuesArray);
+    }
+
+    public static double median (double values[]) {
+        double valuesClone[] = values.clone();
+
+        Arrays.sort(valuesClone);
+
+        if (valuesClone.length <= 0) return 0;
+        if (valuesClone.length == 1) return valuesClone[0];
+
+        if (valuesClone.length % 2 == 0) {
+            return (valuesClone[valuesClone.length/2] + valuesClone[valuesClone.length/2 - 1])/2;
+        } else {
+            return valuesClone[valuesClone.length / 2];
+        }
+    }
+
+    public static boolean checkArraysEquals (Number a[], Number b[]) {
+        if (a.length != b.length) return false;
+
+        Arrays.sort(a);
+        Arrays.sort(b);
+
+        for (int i = 0; i < a.length; i++) {
+            if (!a[i].equals(b[i])) return false;
+        }
+
+        return true;
+    }
+
 }
