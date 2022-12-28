@@ -6,7 +6,7 @@
 
 	<groupId>abderrahmane.ml</groupId>
 	<artifactId>java-ml-library</artifactId>
-	<version>1.4.1-SNAPSHOT</version>
+	<version>1.4.2-SNAPSHOT</version>
 
 	<name>java-ml-library</name>
 	<description>Simple Machine Learning algorithms collection</description>
